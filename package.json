@@ -1,6 +1,6 @@
 {
   "name": "ng4-material-dropdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Angular 4 material-like dropdown component",
   "scripts": {
     "prepublish": "npm run build",
