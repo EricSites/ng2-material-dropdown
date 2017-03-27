@@ -1,21 +1,36 @@
+const path = require('path');
 
 module.exports = {
     devtool: 'cheap-module-source-map',
 
     resolve: {
-        extensions: ['', '.ts', '.js']
+        extensions: ['.ts', '.js']
     },
 
     module: {
-        loaders: [
+        rules: [
+            {
+                enforce: 'post',
+                test: /\.ts/,
+                include: path.resolve(__dirname, 'modules'),
+                exclude: [
+                    /\.(e2e|spec)\.ts$/,
+                    /tests/,
+                    /node_modules/
+                ],
+                loader: 'istanbul-instrumenter-loader',
+                query: {
+                    esModules: true
+                }
+            },
             {
                 test: /\.ts$/,
                 loaders: ['angular2-template-loader', 'awesome-typescript-loader']
             },
             {
                 test: /\.png/,
-                loader: 'url-loader',
-                query: { mimetype: 'image/png' }
+                loader: "url-loader",
+                query: { mimetype: "image/png" }
             },
             {
                 test: /\.css$/,
@@ -23,16 +38,16 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-                loader: 'raw-loader'
+                loader: "html-loader"
             },
             {
                 test: /\.scss$/,
-                loaders: ['raw-loader', 'css-loader', 'sass-loader']
+                loaders: ['raw-loader', "sass-loader"]
             },
             {
                 test: /\.svg/,
                 loader: 'svg-url-loader'
-            },
+            }
         ]
     }
 };

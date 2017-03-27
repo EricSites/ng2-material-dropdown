@@ -1,20 +1,23 @@
-var webpack = require('webpack');
-var path = require('path');
-var precss       = require('precss');
-var autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const path = require('path');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // Webpack Config
-var webpackConfig = {
+const webpackConfig = {
     entry: {
-        'vendor': ['@angular/core', '@angular/common'],
+        'vendor': [
+            '@angular/core',
+            '@angular/common'
+        ],
         'ng4-dropdown': './src/modules/ng4-dropdown.module.ts'
     },
 
     output: {
-        path: './dist',
+        path: path.resolve('./dist'),
         libraryTarget: "umd",
-        library: 'ng4-dropdown',
-        umdNamedRequire: true
+        library: 'ng4-dropdown'
     },
 
     externals: {
@@ -22,12 +25,9 @@ var webpackConfig = {
         "@angular/common": true
     },
 
-    plugins: [],
-
-    tslint: {
-        emitErrors: false,
-        failOnHint: false,
-        resourcePath: 'src'
+    externals: {
+        "@angular/core": true,
+        "@angular/common": true
     },
 
     module: {
@@ -44,16 +44,13 @@ var webpackConfig = {
             },
             {
                 test: /\.html$/,
-                loader: "html"
+                loader: "html-loader"
             },
             {
-                test: /\.scss$/,
-                loaders: ["raw", "postcss", "sass"]
+                test: /\.(css|scss)$/,
+                loaders: ['to-string-loader', 'css-loader', 'sass-loader']
             }
         ]
-    },
-    postcss: function () {
-        return [precss, autoprefixer];
     }
 };
 
@@ -61,7 +58,6 @@ var webpackConfig = {
 var defaultConfig = {
     devtool: 'cheap-module-source-map',
     cache: true,
-    debug: true,
     output: {
         filename: '[name].bundle.js',
         sourceMapFilename: '[name].map',
@@ -69,8 +65,9 @@ var defaultConfig = {
     },
 
     module: {
-        preLoaders: [
+        loaders: [
             {
+                enforce: 'pre',
                 test: /\.js$/,
                 loader: 'source-map-loader',
                 exclude: [
@@ -79,15 +76,11 @@ var defaultConfig = {
                     path.join(__dirname, 'node_modules', '@angular')
                 ]
             }
-        ],
-        noParse: [
-            path.join(__dirname, 'node_modules', 'zone.js', 'dist'),
-            path.join(__dirname, 'node_modules', 'angular2', 'bundles')
         ]
     },
 
     resolve: {
-        extensions: ['', '.ts', '.js']
+        extensions: ['.ts', '.js', '.scss']
     },
 
     devServer: {
@@ -95,14 +88,21 @@ var defaultConfig = {
         watchOptions: { aggregateTimeout: 300, poll: 1000 }
     },
 
-    node: {
-        global: true,
-        crypto: 'empty',
-        module: false,
-        Buffer: false,
-        clearImmediate: false,
-        setImmediate: false
-    }
+    plugins: [
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                tslint: {
+                    emitErrors: true,
+                    failOnHint: true,
+                    resourcePath: 'src/modules'
+                },
+
+                postcss: () => [precss, autoprefixer]
+            }
+        }),
+
+        new ExtractTextPlugin("styles.css")
+    ]
 };
 
 var webpackMerge = require('webpack-merge');

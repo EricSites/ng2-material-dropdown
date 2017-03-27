@@ -1,17 +1,5 @@
-import {
-    Component,
-    ElementRef,
-    Renderer,
-    ContentChildren,
-    QueryList,
-    Input,
-    trigger,
-    style,
-    transition,
-    animate,
-    keyframes,
-    state
-} from '@angular/core';
+import { Component, ElementRef, Renderer, ContentChildren, QueryList, Input } from '@angular/core';
+import { keyframes, trigger, state, style, transition, animate } from '@angular/animations';
 
 import { ACTIONS, arrowKeysHandler } from './actions';
 

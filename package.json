@@ -6,7 +6,7 @@
     "prepublish": "npm run build",
     "build": "tsc && npm run moveassets && npm run ngc && webpack --colors --progress --display-error-details --display-cached",
     "watch": "npm run build -- --watch",
-    "server": "webpack-dev-server --config webpack.demo.js --inline --colors --progress --display-error-details --display-cached --port 3005  --content-base demo",
+    "server": "webpack-dev-server --config webpack.demo.js --inline --colors --progress --port 3005 --content-base demo",
     "start": "npm run server",
     "test": "karma start karma.conf.js --single-run",
     "ngc": "ngc -p ./tsconfig.aot.json",
@@ -39,6 +39,7 @@
     "css-loader": "^0.27.3",
     "es6-promise": "4.1.0",
     "es6-shim": "0.35.3",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
     "html-loader": "^0.4.4",
     "jasmine": "^2.5.3",
@@ -51,19 +52,20 @@
     "node-sass": "^4.3.0",
     "postcss-loader": "^1.2.2",
     "precss": "^1.4.0",
-    "protractor": "^3.3.0",
+    "protractor": "^5.1.1",
     "raw-loader": "^0.5.1",
-    "reflect-metadata": "0.1.2",
+    "reflect-metadata": "0.1.10",
     "rxjs": "5.2.0",
     "sass-loader": "^6.0.1",
     "source-map-loader": "^0.2.0",
     "style-loader": "^0.16.0",
-    "svg-url-loader": "^1.0.3",
+    "svg-url-loader": "^2.0.2",
+    "to-string-loader": "^1.1.5",
     "ts-helpers": "1.1.2",
     "ts-node": "^3.0.2",
     "tslint": "^4.3.1",
     "typescript": "^2.2.1",
-    "typings": "~1.0.3",
+    "typings": "~2.1.0",
     "url-loader": "^0.5.7",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.0",
@@ -93,7 +95,7 @@
     "tsconfig.aot.json",
     "index.ts"
   ],
-   "exclude": [
-      "**/*.spec.ts"
-   ]
+  "exclude": [
+    "**/*.spec.ts"
+  ]
 }

@@ -5,6 +5,7 @@ import { Ng4MenuItem } from './components/menu-item/ng4-menu-item';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DropdownStateService } from './services/dropdown-state.service';
 
 @NgModule({
@@ -20,7 +21,7 @@ import { DropdownStateService } from './services/dropdown-state.service';
         Ng4DropdownButton,
         Ng4DropdownMenu,
     ],
-    imports: [ CommonModule ]
+    imports: [ CommonModule, BrowserAnimationsModule ]
 })
 export class Ng4DropdownModule {}
 

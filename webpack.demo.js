@@ -1,27 +1,37 @@
-var webpack = require('webpack');
-var path = require('path');
-var precss       = require('precss');
-var autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const path = require('path');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-// Webpack Config
-var webpackConfig = {
+const webpackConfig = {
     entry: {
         'polyfills': './demo/polyfills.ts',
-        'app':       './demo/app.ts'
+        'app': './demo/app.ts'
     },
+
     output: {
-        path: './dist'
+        path: path.resolve('./dist')
     },
+
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({ name: ['app', 'polyfills'], minChunks: Infinity })
+        new webpack.optimize.CommonsChunkPlugin({name: ['app', 'polyfills'], minChunks: Infinity }),
+        new ExtractTextPlugin("styles.css"),
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                tslint: {
+                    emitErrors: true,
+                    failOnHint: false,
+                    resourcePath: './'
+                },
+
+                postcss: () => [precss, autoprefixer]
+            }
+        }),
     ],
-    tslint: {
-        emitErrors: false,
-        failOnHint: false,
-        resourcePath: 'src'
-    },
+
     module: {
-        loaders: [
+        rules: [
             // .ts files for TypeScript
             {
                 test: /\.ts$/,
@@ -34,21 +44,20 @@ var webpackConfig = {
             },
             {
                 test: /\.html$/,
-                loader: "html"
+                loader: "html-loader"
             },
             {
-                test: /\.scss$/,
-                loaders: ["raw", "postcss", "sass"]
+                test: /\.(css|scss)$/,
+                loaders: ['to-string-loader', 'css-loader', 'sass-loader']
             }
         ]
     }
 };
 
 // Our Webpack Defaults
-var defaultConfig = {
+const defaultConfig = {
     devtool: 'cheap-module-source-map',
-    cache: false,
-    debug: true,
+    cache: true,
     output: {
         filename: '[name].bundle.js',
         sourceMapFilename: '[name].map',
@@ -56,8 +65,9 @@ var defaultConfig = {
     },
 
     module: {
-        preLoaders: [
+        rules: [
             {
+                enforce: 'pre',
                 test: /\.js$/,
                 loader: 'source-map-loader',
                 exclude: [
@@ -66,31 +76,22 @@ var defaultConfig = {
                     path.join(__dirname, 'node_modules', '@angular')
                 ]
             }
-        ],
-        noParse: [
-            path.join(__dirname, 'node_modules', 'zone.js', 'dist'),
-            path.join(__dirname, 'node_modules', 'angular2', 'bundles')
         ]
     },
 
     resolve: {
-        extensions: ['', '.ts', '.js']
+        extensions: ['.ts', '.js', '.scss']
     },
 
     devServer: {
-        historyApiFallback: true,
-        watchOptions: { aggregateTimeout: 500, poll: 500 }
-    },
-
-    node: {
-        global: 1,
-        crypto: 'empty',
-        module: 0,
-        Buffer: 0,
-        clearImmediate: 0,
-        setImmediate: 0
+        clientLogLevel: "info",
+        watchOptions: {
+            aggregateTimeout: 300,
+            poll: 1000
+        },
+        stats: {colors: true}
     }
 };
 
-var webpackMerge = require('webpack-merge');
+const webpackMerge = require('webpack-merge');
 module.exports = webpackMerge(defaultConfig, webpackConfig);
