@@ -1,4 +1,4 @@
-.ng2-dropdown-menu {
+.ng4-dropdown-menu {
     z-index: 100;
 
     overflow-y: auto;
@@ -15,23 +15,23 @@
     display: block;
 }
 
-.ng2-dropdown-menu.ng2-dropdown-menu--inside-element {
+.ng4-dropdown-menu.ng4-dropdown-menu--inside-element {
     position: fixed;
 }
 
-.ng2-dropdown-menu.ng2-dropdown-menu--width--2 {
+.ng4-dropdown-menu.ng4-dropdown-menu--width--2 {
     width: 200px;
 }
 
-.ng2-dropdown-menu.ng2-dropdown-menu--width--4 {
+.ng4-dropdown-menu.ng4-dropdown-menu--width--4 {
     width: 260px;
 }
 
-.ng2-dropdown-menu.ng2-dropdown-menu--width--6 {
+.ng4-dropdown-menu.ng4-dropdown-menu--width--6 {
     width: 320px;
 }
 
-.ng2-dropdown-backdrop {
+.ng4-dropdown-backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -41,7 +41,7 @@
     overflow: hidden;
 }
 
-:host /deep/ .ng2-menu-divider {
+:host /deep/ .ng4-menu-divider {
     height: 1px;
     min-height: 1px;
     max-height: 1px;

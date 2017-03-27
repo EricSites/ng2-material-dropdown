@@ -7,27 +7,27 @@ import {
     Input
 } from '@angular/core';
 
-import { Ng2DropdownButton } from '../button/ng2-dropdown-button';
-import { Ng2DropdownMenu } from '../menu/ng2-dropdown-menu';
+import { Ng4DropdownButton } from '../button/ng4-dropdown-button';
+import { Ng4DropdownMenu } from '../menu/ng4-dropdown-menu';
 import { DropdownStateService } from '../../services/dropdown-state.service';
 
 @Component({
-    selector: 'ng2-dropdown',
+    selector: 'ng4-dropdown',
     templateUrl: './template.html',
     providers: [ DropdownStateService ]
 })
-export class Ng2Dropdown {
+export class Ng4Dropdown {
     // get children components
-    @ContentChild(Ng2DropdownButton) public button: Ng2DropdownButton;
-    @ContentChild(Ng2DropdownMenu) public menu: Ng2DropdownMenu;
+    @ContentChild(Ng4DropdownButton) public button: Ng4DropdownButton;
+    @ContentChild(Ng4DropdownMenu) public menu: Ng4DropdownMenu;
 
-    @Input() public dynamicUpdate: boolean = true;
+    @Input() public dynamicUpdate = true;
 
     // outputs
     @Output() public onItemClicked: EventEmitter<string> = new EventEmitter<string>();
     @Output() public onItemSelected: EventEmitter<string> = new EventEmitter<string>();
-    @Output() public onShow: EventEmitter<Ng2Dropdown> = new EventEmitter<Ng2Dropdown>();
-    @Output() public onHide: EventEmitter<Ng2Dropdown> = new EventEmitter<Ng2Dropdown>();
+    @Output() public onShow: EventEmitter<Ng4Dropdown> = new EventEmitter<Ng4Dropdown>();
+    @Output() public onHide: EventEmitter<Ng4Dropdown> = new EventEmitter<Ng4Dropdown>();
 
     constructor(private state: DropdownStateService) {}
 

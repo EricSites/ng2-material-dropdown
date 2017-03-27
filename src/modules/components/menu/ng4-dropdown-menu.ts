@@ -15,11 +15,11 @@ import {
 
 import { ACTIONS, arrowKeysHandler } from './actions';
 
-import { Ng2MenuItem } from '../menu-item/ng2-menu-item';
+import { Ng4MenuItem } from '../menu-item/ng4-menu-item';
 import { DropdownStateService } from '../../services/dropdown-state.service';
 
 @Component({
-    selector: 'ng2-dropdown-menu',
+    selector: 'ng4-dropdown-menu',
     styleUrls: [ './style.scss' ],
     templateUrl: './template.html',
     animations: [
@@ -56,19 +56,19 @@ import { DropdownStateService } from '../../services/dropdown-state.service';
         ])
     ]
 })
-export class Ng2DropdownMenu {
+export class Ng4DropdownMenu {
     /**
      * @name width
      * @type {number} [2, 4, 6]
      */
-    @Input() public width: number = 4;
+    @Input() public width = 4;
 
     /**
      * @description if set to true, the first element of the dropdown will be automatically focused
      * @name focusFirstElement
      * @type {boolean}
      */
-    @Input() public focusFirstElement: boolean = true;
+    @Input() public focusFirstElement = true;
 
     /**
      * @description sets dropdown offset from the button
@@ -80,13 +80,13 @@ export class Ng2DropdownMenu {
      * @name appendToBody
      * @type {boolean}
      */
-    @Input() public appendToBody: boolean = true;
+    @Input() public appendToBody = true;
 
     /**
      * @name items
-     * @type {QueryList<Ng2MenuItem>}
+     * @type {QueryList<Ng4MenuItem>}
      */
-    @ContentChildren(Ng2MenuItem) public items: QueryList<Ng2MenuItem>;
+    @ContentChildren(Ng4MenuItem) public items: QueryList<Ng4MenuItem>;
 
     private position: ClientRect;
 

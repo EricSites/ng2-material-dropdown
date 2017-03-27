@@ -1,23 +1,23 @@
 import { Component, NgModule } from '@angular/core';
-import { Ng2DropdownModule } from '../../ng2-dropdown.module';
+import { Ng4DropdownModule } from '../../ng4-dropdown.module';
 
 @Component({
     selector: 'basic-dropdown',
     template: `
         <main>
-        <ng2-dropdown>
-            <ng2-dropdown-button>
+        <ng4-dropdown>
+            <ng4-dropdown-button>
                 Open
-            </ng2-dropdown-button>
-            <ng2-dropdown-menu [focusFirstElement]="true">
-                <ng2-menu-item>
+            </ng4-dropdown-button>
+            <ng4-dropdown-menu [focusFirstElement]="true">
+                <ng4-menu-item>
                     First item
-                </ng2-menu-item>
-                <ng2-menu-item [preventClose]="true">
+                </ng4-menu-item>
+                <ng4-menu-item [preventClose]="true">
                     Second item
-                </ng2-menu-item>
-            </ng2-dropdown-menu>
-        </ng2-dropdown>
+                </ng4-menu-item>
+            </ng4-dropdown-menu>
+        </ng4-dropdown>
         </main>
     `
 })
@@ -29,7 +29,7 @@ export class BasicDropdown {
     declarations: [
         BasicDropdown
     ],
-    imports: [Ng2DropdownModule],
+    imports: [Ng4DropdownModule],
     exports: [BasicDropdown]
 })
 export class TestModule {}

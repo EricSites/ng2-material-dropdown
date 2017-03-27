@@ -1,8 +1,8 @@
 export {
-    Ng2Dropdown,
-    Ng2DropdownMenu,
-    Ng2MenuItem,
-    Ng2DropdownButton,
-    Ng2DropdownModule,
+    Ng4Dropdown,
+    Ng4DropdownMenu,
+    Ng4MenuItem,
+    Ng4DropdownButton,
+    Ng4DropdownModule,
     DropdownStateService
-} from './dist/src/modules/ng2-dropdown.module';
+} from './dist/src/modules/ng4-dropdown.module';

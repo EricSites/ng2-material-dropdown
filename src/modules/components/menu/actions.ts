@@ -1,5 +1,5 @@
-import { Ng2MenuItem } from '../menu-item/ng2-menu-item';
-import { Ng2DropdownState } from '../../services/ng2-dropdown-state';
+import { Ng4MenuItem } from '../menu-item/ng4-menu-item';
+import { Ng4DropdownState } from '../../services/ng4-dropdown-state';
 
 const KEYS = {
     BACKSPACE: 9,
@@ -14,7 +14,7 @@ const KEYS = {
  * @param items
  * @param state
  */
-const onSwitchNext = (index: number, items: Ng2MenuItem[], state: Ng2DropdownState) => {
+const onSwitchNext = (index: number, items: Ng4MenuItem[], state: Ng4DropdownState) => {
     if (index < items.length - 1) {
         state.select(items[index + 1], true);
     }
@@ -26,7 +26,7 @@ const onSwitchNext = (index: number, items: Ng2MenuItem[], state: Ng2DropdownSta
  * @param items
  * @param state
  */
-const onSwitchPrev = (index: number, items: Ng2MenuItem[], state: Ng2DropdownState) => {
+const onSwitchPrev = (index: number, items: Ng4MenuItem[], state: Ng4DropdownState) => {
     if (index > 0) {
         state.select(items[index - 1], true);
     }
@@ -38,7 +38,7 @@ const onSwitchPrev = (index: number, items: Ng2MenuItem[], state: Ng2DropdownSta
  * @param items
  * @param state
  */
-const onBackspace = (index: number, items: Ng2MenuItem[], state: Ng2DropdownState) => {
+const onBackspace = (index: number, items: Ng4MenuItem[], state: Ng4DropdownState) => {
     if (index < items.length - 1) {
         state.select(items[index + 1], true);
     } else {
@@ -52,7 +52,7 @@ const onBackspace = (index: number, items: Ng2MenuItem[], state: Ng2DropdownStat
  * @param items
  * @param state
  */
-const onItemClicked = (index: number, items: Ng2MenuItem[], state: Ng2DropdownState) => {
+const onItemClicked = (index: number, items: Ng4MenuItem[], state: Ng4DropdownState) => {
     return state.selectedItem ? state.selectedItem.click() : undefined;
 };
 

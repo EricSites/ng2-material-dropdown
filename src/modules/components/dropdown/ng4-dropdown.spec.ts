@@ -5,7 +5,7 @@ import {
     tick
 } from '@angular/core/testing';
 
-import { Ng2Dropdown } from './ng2-dropdown';
+import { Ng4Dropdown } from './ng4-dropdown';
 
 import { By } from '@angular/platform-browser';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,7 +18,7 @@ function getComponent(fixture, component) {
     return fixture.debugElement.query(By.directive(component)).componentInstance;
 }
 
-describe('Ng2Dropdown', () => {
+describe('Ng4Dropdown', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [BrowserModule, TestModule]
@@ -28,7 +28,7 @@ describe('Ng2Dropdown', () => {
     describe('when the controller is instantiated', () => {
         it('has its properties defined', () => {
             const fixture: ComponentFixture<BasicDropdown> = TestBed.createComponent(BasicDropdown);
-            const component = getComponent(fixture, Ng2Dropdown);
+            const component = getComponent(fixture, Ng4Dropdown);
             expect(component.button).toBeDefined();
             expect(component.menu).toBeDefined();
             expect(component.menu.items.length).toEqual(2);
@@ -37,7 +37,7 @@ describe('Ng2Dropdown', () => {
 
         it('shows/hides dropdown menu', () => {
             const fixture: ComponentFixture<BasicDropdown> = TestBed.createComponent(BasicDropdown);
-            const component = getComponent(fixture, Ng2Dropdown);
+            const component = getComponent(fixture, Ng4Dropdown);
 
             component.button.toggleMenu();
             expect(component.state.menuState.isVisible).toEqual(true);
@@ -60,7 +60,7 @@ describe('Ng2Dropdown', () => {
 
         it('goes through the dropdown items', fakeAsync(() => {
             const fixture: ComponentFixture<BasicDropdown> = TestBed.createComponent(BasicDropdown);
-            const component = getComponent(fixture, Ng2Dropdown);
+            const component = getComponent(fixture, Ng4Dropdown);
 
             component.show();
 
@@ -86,7 +86,7 @@ describe('Ng2Dropdown', () => {
 
         it('fires click event when pressing enter', fakeAsync(() => {
             const fixture: ComponentFixture<BasicDropdown> = TestBed.createComponent(BasicDropdown);
-            const component = getComponent(fixture, Ng2Dropdown);
+            const component = getComponent(fixture, Ng4Dropdown);
 
             // show menu and press element with preventClose attribute set to true
             component.show();

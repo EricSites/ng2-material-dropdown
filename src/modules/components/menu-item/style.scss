@@ -1,4 +1,4 @@
-.ng2-menu-item {
+.ng4-menu-item {
     font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
 
     background: #fff;
@@ -20,20 +20,20 @@
     transition: background 0.25s;
 }
 
-.ng2-menu-item--selected {
+.ng4-menu-item--selected {
     background: rgba(158, 158, 158, 0.2);
     outline: 0;
 }
 
-.ng2-menu-item:focus {
+.ng4-menu-item:focus {
     outline: 0;
 }
 
-.ng2-menu-item:active {
+.ng4-menu-item:active {
     background: rgba(158, 158, 158, 0.4);
 }
 
-:host(ng2-menu-item) /deep/ [ng2-menu-item-icon] {
+:host(ng4-menu-item) /deep/ [ng4-menu-item-icon] {
     vertical-align: middle;
     font-size: 28px;
     width: 1.5em;

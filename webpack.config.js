@@ -7,13 +7,13 @@ var autoprefixer = require('autoprefixer');
 var webpackConfig = {
     entry: {
         'vendor': ['@angular/core', '@angular/common'],
-        'ng2-dropdown': './src/modules/ng2-dropdown.module.ts'
+        'ng4-dropdown': './src/modules/ng4-dropdown.module.ts'
     },
 
     output: {
         path: './dist',
         libraryTarget: "umd",
-        library: 'ng2-dropdown',
+        library: 'ng4-dropdown',
         umdNamedRequire: true
     },
 

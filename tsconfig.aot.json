@@ -24,7 +24,7 @@
     "strictMetadataEmit": true
   },
   "files": [
-    "src/modules/ng2-dropdown.module.ts"
+    "src/modules/ng4-dropdown.module.ts"
   ],
   "exclude": [
     "node_modules",

@@ -1,4 +1,4 @@
-.ng2-dropdown-button {
+.ng4-dropdown-button {
     font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
 
     background: #fff;
@@ -19,28 +19,28 @@
     max-width: 150px;
 }
 
-.ng2-dropdown-button:hover {
+.ng4-dropdown-button:hover {
     color: #222;
 }
 
-.ng2-dropdown-button:active,
-.ng2-dropdown-button:focus {
+.ng4-dropdown-button:active,
+.ng4-dropdown-button:focus {
     color: #222;
     border-bottom: 2px solid #2196F3;
 }
 
-.ng2-dropdown-button__label {
+.ng4-dropdown-button__label {
     flex: 1 1 95%;
 }
 
-.ng2-dropdown-button__caret {
+.ng4-dropdown-button__caret {
     width: 12px;
     height: 12px;
     display: flex;
     flex: 1 1 6%;
 }
 
-:host-context(.ng2-dropdown-button--icon) .ng2-dropdown-button {
+:host-context(.ng4-dropdown-button--icon) .ng4-dropdown-button {
     border: none;
     min-width: 40px;
     width: 40px;
@@ -51,6 +51,6 @@
     padding: 0.5em;
 }
 
-:host-context(.ng2-dropdown-button--icon) .ng2-dropdown-button:active {
+:host-context(.ng4-dropdown-button--icon) .ng4-dropdown-button:active {
     background: rgba(0, 0, 0, 0.2);
 }

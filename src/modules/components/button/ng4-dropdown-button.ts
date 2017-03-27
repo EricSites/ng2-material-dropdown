@@ -7,13 +7,13 @@ import {
 } from '@angular/core';
 
 @Component({
-    selector: 'ng2-dropdown-button',
+    selector: 'ng4-dropdown-button',
     styleUrls: [ './style.scss' ],
     templateUrl: './template.html'
 })
-export class Ng2DropdownButton {
+export class Ng4DropdownButton {
     @Output() public onMenuToggled: EventEmitter<boolean> = new EventEmitter<boolean>();
-    @Input() public showCaret: boolean = true;
+    @Input() public showCaret = true;
 
     constructor(private element: ElementRef) {}
 

@@ -8,17 +8,17 @@ import {
 import { DropdownStateService } from '../../services/dropdown-state.service';
 
 @Component({
-    selector: 'ng2-menu-item',
+    selector: 'ng4-menu-item',
     styleUrls: [ './style.scss' ],
     templateUrl: './template.html'
 })
-export class Ng2MenuItem {
+export class Ng4MenuItem {
     /**
      * @preventClose
      * @desc if true, clicking on the item won't close the dropdown
      * @type {boolean}
      */
-    @Input() public preventClose: boolean = false;
+    @Input() public preventClose = false;
 
     /**
      * @name value

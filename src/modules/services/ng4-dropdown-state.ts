@@ -1,26 +1,26 @@
 import { EventEmitter } from '@angular/core';
-import { Ng2MenuItem } from '../components/menu-item/ng2-menu-item';
+import { Ng4MenuItem } from '../components/menu-item/ng4-menu-item';
 
-export class Ng2DropdownState {
-    public onItemSelected: EventEmitter<Ng2MenuItem> = new EventEmitter<Ng2MenuItem>();
-    public onItemClicked: EventEmitter<Ng2MenuItem> = new EventEmitter<Ng2MenuItem>();
-    private _selectedItem: Ng2MenuItem;
+export class Ng4DropdownState {
+    public onItemSelected: EventEmitter<Ng4MenuItem> = new EventEmitter<Ng4MenuItem>();
+    public onItemClicked: EventEmitter<Ng4MenuItem> = new EventEmitter<Ng4MenuItem>();
+    private _selectedItem: Ng4MenuItem;
 
     /**
      * @name selectedItem
      * @desc getter for _selectedItem
-     * @returns {Ng2MenuItem}
+     * @returns {Ng4MenuItem}
      */
-    public get selectedItem(): Ng2MenuItem {
+    public get selectedItem(): Ng4MenuItem {
         return this._selectedItem;
     }
 
     /**
      * @name selects a menu item and emits event
-     * @param item {Ng2MenuItem}
+     * @param item {Ng4MenuItem}
      * @param dispatchEvent {boolean}
      */
-    public select(item: Ng2MenuItem, dispatchEvent = true): void {
+    public select(item: Ng4MenuItem, dispatchEvent = true): void {
         this._selectedItem = item;
 
         if (!dispatchEvent) {

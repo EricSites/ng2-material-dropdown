@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Ng2DropdownState } from './ng2-dropdown-state';
+import { Ng4DropdownState } from './ng4-dropdown-state';
 
 @Injectable()
 export class DropdownStateService {
@@ -10,5 +10,5 @@ export class DropdownStateService {
         }
     };
 
-    public dropdownState: Ng2DropdownState = new Ng2DropdownState();
+    public dropdownState: Ng4DropdownState = new Ng4DropdownState();
 }
